@@ -4,7 +4,12 @@ include recipes-core/images/core-image-base.bb
 
 MACHINE_FEATURES += "wifi"
 
-#IMAGE_FEATURES += "ssh-server-dropbear"
+DISTRO_FEATURES_append = "\
+    systemd \
+    wifi \
+"
+
+IMAGE_FEATURES += "ssh-server-dropbear"
 
 VIRTUAL-RUNTIME_init_manager = "systemd"
 VIRTUAL-RUNTIME_initscripts = ""
